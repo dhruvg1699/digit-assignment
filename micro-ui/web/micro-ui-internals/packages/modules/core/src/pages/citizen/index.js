@@ -1,5 +1,5 @@
-import { BackLink, CitizenHomeCard, CitizenInfoLabel } from "@egovernments/digit-ui-components";
-import React from "react";
+import { BackLink, CitizenHomeCard, CitizenInfoLabel, PopUp } from "@egovernments/digit-ui-components";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Route, Switch, useHistory, useRouteMatch } from "react-router-dom";
 import ErrorBoundary from "../../components/ErrorBoundaries";
@@ -139,7 +139,7 @@ const Home = ({
 
   return (
     <div className={classname}>
-      <TopBarSideBar
+      {/* <TopBarSideBar
         t={t}
         stateInfo={stateInfo}
         userDetails={userDetails}
@@ -151,65 +151,69 @@ const Home = ({
         showSidebar={CITIZEN ? true : false}
         linkData={linkData}
         islinkDataLoading={islinkDataLoading}
-      />
+      /> */}
 
-      <div className={`main center-container citizen-home-container mb-25`}>
-        {hideSidebar ? null : (
+      <div
+        className={`main center-container citizen-home-container mb-25`}
+        style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
+        {/* {hideSidebar ? null : (
           <div className="SideBarStatic">
             <StaticCitizenSideBar linkData={linkData} islinkDataLoading={islinkDataLoading} />
           </div>
-        )}
+        )} */}
+        <div>
+          <Switch>
+            <Route exact path={path}>
+              <CitizenHome />
+            </Route>
 
-        <Switch>
-          <Route exact path={path}>
-            <CitizenHome />
-          </Route>
+            <Route exact path={`${path}/select-language`}>
+              <LanguageSelection />
+            </Route>
 
-          <Route exact path={`${path}/select-language`}>
-            <LanguageSelection />
-          </Route>
+            <Route exact path={`${path}/select-location`}>
+              <LocationSelection />
+            </Route>
+            <Route path={`${path}/error`}>
+              <ErrorComponent
+                initData={initData}
+                goToHome={() => {
+                  history.push(`/${window?.contextPath}/${Digit?.UserService?.getType?.()}`);
+                }}
+              />
+            </Route>
+            <Route path={`${path}/all-services`}>
+              <AppHome
+                userType="citizen"
+                modules={modules}
+                getCitizenMenu={linkData}
+                fetchedCitizen={isLinkDataFetched}
+                isLoading={islinkDataLoading}
+              />
+            </Route>
 
-          <Route exact path={`${path}/select-location`}>
-            <LocationSelection />
-          </Route>
-          <Route path={`${path}/error`}>
-            <ErrorComponent
-              initData={initData}
-              goToHome={() => {
-                history.push(`/${window?.contextPath}/${Digit?.UserService?.getType?.()}`);
-              }}
-            />
-          </Route>
-          <Route path={`${path}/all-services`}>
-            <AppHome
-              userType="citizen"
-              modules={modules}
-              getCitizenMenu={linkData}
-              fetchedCitizen={isLinkDataFetched}
-              isLoading={islinkDataLoading}
-            />
-          </Route>
+            <Route path={`${path}/login`}>
+              <Login stateCode={stateCode} />
+            </Route>
 
-          <Route path={`${path}/login`}>
-            <Login stateCode={stateCode} />
-          </Route>
+            <Route path={`${path}/register`}>
+              <Login stateCode={stateCode} isUserRegistered={false} />
+            </Route>
 
-          <Route path={`${path}/register`}>
-            <Login stateCode={stateCode} isUserRegistered={false} />
-          </Route>
+            <Route path={`${path}/user/profile`}>
+              <UserProfile stateCode={stateCode} userType={"citizen"} cityDetails={cityDetails} />
+            </Route>
 
-          <Route path={`${path}/user/profile`}>
-            <UserProfile stateCode={stateCode} userType={"citizen"} cityDetails={cityDetails} />
-          </Route>
-
-          <Route path={`${path}/Audit`}>
-            <Search />
-          </Route>
-          <ErrorBoundary initData={initData}>
-            {appRoutes}
-            {ModuleLevelLinkHomePages}
-          </ErrorBoundary>
-        </Switch>
+            <Route path={`${path}/Audit`}>
+              <Search />
+            </Route>
+            <ErrorBoundary initData={initData}>
+              {appRoutes}
+              {ModuleLevelLinkHomePages}
+            </ErrorBoundary>
+          </Switch>
+        </div>
       </div>
       <div className="citizen-home-footer" style={window.location.href.includes("citizen/obps") ? { zIndex: "-1" } : {}}>
         <ImageComponent

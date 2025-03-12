@@ -112,32 +112,33 @@
 @import "./components//sidebar.scss";
 @import "./components/loaderWithGap.scss";
 @import "./pages/employee/sandbox.scss";
+@import "./pages/citizen/loginStyles.scss";
+@import "./pages/citizen/formStyles.scss";
 
 .wbh-header-container {
   display: flex !important;
   align-items: center;
   justify-content: space-between;
-  margin:1rem 0.5rem -0.5rem 0.3rem;
+  margin: 1rem 0.5rem -0.5rem 0.3rem;
 }
 
 .wbh-header {
   display: flex !important;
   align-items: center;
   justify-content: space-between;
-  margin:1rem 0.5rem -0.5rem 0.3rem;
-  .header-icon-container{
+  margin: 1rem 0.5rem -0.5rem 0.3rem;
+  .header-icon-container {
     cursor: pointer;
-    h4{
-      margin:0px !important;
+    h4 {
+      margin: 0px !important;
     }
-    color:theme(colors.primary.main);
+    color: theme(colors.primary.main);
     display: flex !important;
     align-items: center;
     svg {
-      margin:0 0 0 0.1rem;
+      margin: 0 0 0 0.1rem;
     }
   }
-
 }
 
 .display-none {
@@ -148,10 +149,15 @@
   padding: unset !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size: inherit;
-  font-weight: inherit; }
-
+  font-weight: inherit;
+}
 
 .flex-one {
   @apply flex-1;
@@ -292,7 +298,7 @@ h1, h2, h3, h4, h5, h6 {
 
 input[readonly] {
   @apply border-grey-dark !important;
-  background-color:  theme(digitv2.lightTheme.background);
+  background-color: theme(digitv2.lightTheme.background);
   border-color: theme(digitv2.lightTheme.text-color-secondary);
   color: theme(digitv2.lightTheme.text-color-secondary);
 }
@@ -360,7 +366,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
-
 
 .static {
   @apply flex flex-col;
@@ -642,7 +647,7 @@ input[type="number"] {
 
 @media (min-width: 780px) {
   .citizen-form-wrapper {
-    width: calc(100% - 219px);
+    width: 100%;
     display: flex;
     justify-content: flex-start !important;
     margin-top: 1rem;
@@ -801,7 +806,7 @@ input[type="number"] {
   }
 }
 
-.info-banner-wrap div{
+.info-banner-wrap div {
   align-items: center;
 }
 
@@ -809,15 +814,15 @@ input[type="number"] {
   margin: auto;
   width: calc(100% - 5rem);
 }
-.actionBarClass{
+.actionBarClass {
   display: flex;
   justify-content: space-between;
   flex-direction: row-reverse;
 }
-.previous-button{
+.previous-button {
   margin-left: 4rem;
 }
-.view-composer-header-section{
+.view-composer-header-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -839,16 +844,15 @@ input[type="number"] {
   width: 100%;
 }
 
-.localization-search-table{
+.localization-search-table {
   margin-bottom: 2rem;
 
-  .pagination{
+  .pagination {
     margin-bottom: 2rem;
   }
 }
 
 .user-profile {
-
   &.employee {
     margin-top: 6rem;
     margin-left: 4.5rem;

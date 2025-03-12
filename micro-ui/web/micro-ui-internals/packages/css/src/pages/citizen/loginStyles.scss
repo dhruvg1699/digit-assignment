@@ -1,0 +1,135 @@
+.digit-employeeCard-input {
+  width: 100% !important;
+}
+
+.field-container {
+  max-width: 100% !important;
+}
+
+.digit-button-default,
+.digit-button-primary {
+  width: 100% !important;
+  background-color: #007e7e;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 3rem;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 2rem;
+}
+
+.digit-card-component {
+  gap: 0px !important;
+  min-width: 37.5rem;
+}
+
+.digit-card-label {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  color: #0b0c0c;
+}
+
+.digit-card-header {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 24px !important;
+  line-height: 30px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.digit-card-text {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #505a5f;
+}
+
+.citizen-card-input,
+.citizen-card-input--front {
+  width: 3.75rem !important;
+  border: 1px solid #505a5f !important;
+  background-color: #fafafa !important;
+  border-right: none;
+}
+
+.input-otp-wrap input {
+  width: 78px !important;
+}
+
+.dialog-sub-header {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #0b0c0c;
+  margin-bottom: 1.5rem;
+}
+
+.digit-popup-heading {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 24px !important;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.digit-popup-header {
+  padding-top: 0.5rem !important;
+}
+
+.digit-popup-overlay .digit-popup-wrapper {
+  width: fit-content !important;
+}
+
+.digit-popup-overlay .digit-popup-wrapper .digit-popup-children-wrap {
+  padding-top: 0.5rem !important;
+}
+
+.input-otp-wrap input {
+  border-color: #b1b4b6 !important;
+  margin-bottom: 0px !important;
+}
+
+.input-otp-wrap {
+  margin-bottom: 0px !important;
+}
+
+.card-text-button {
+  margin-top: 1rem;
+  display: flex;
+  gap: 10px;
+  height: fit-content;
+  align-items: flex-start;
+}
+
+.resend-otp {
+  margin: 0px;
+}
+
+.resend-otp-disabled {
+  margin: 0px;
+  color: #bbbbbd;
+}
+
+.otp-verification {
+  width: 6rem !important;
+  margin-left: auto;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  text-transform: capitalize;
+}

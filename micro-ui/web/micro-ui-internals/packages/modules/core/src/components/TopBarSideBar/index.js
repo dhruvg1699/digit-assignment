@@ -46,7 +46,7 @@ const TopBarSideBar = ({
 
   return (
     <React.Fragment>
-      <TopBar
+      {/* <TopBar
         t={t}
         stateInfo={stateInfo}
         toggleSidebar={handleSidebar}
@@ -61,9 +61,9 @@ const TopBarSideBar = ({
         logoUrl={logoUrl}
         logoUrlWhite={logoUrlWhite}
         showLanguageChange={showLanguageChange}
-      />
+      /> */}
       {showDialog && <LogoutDialog onSelect={handleOnSubmit} onCancel={handleOnCancel} onDismiss={handleOnCancel}></LogoutDialog>}
-      {!CITIZEN
+      {/* {!CITIZEN
         ? showSidebar && (
             <SideBar
               t={t}
@@ -93,7 +93,7 @@ const TopBarSideBar = ({
               islinkDataLoading={islinkDataLoading}
             />
           )
-        : null}
+        : null} */}
     </React.Fragment>
   );
 };

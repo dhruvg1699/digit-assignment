@@ -1,0 +1,24 @@
+.digit-label-field-pair {
+  flex-direction: column;
+  gap: 5px;
+}
+
+.digit-card-label {
+  margin: 0 !important;
+}
+
+.form-component {
+  background-color: #ffffff;
+  padding: 2.5rem;
+}
+
+.form-support-text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-support-text-label {
+  width: 70%;
+  margin-bottom: 3rem;
+}

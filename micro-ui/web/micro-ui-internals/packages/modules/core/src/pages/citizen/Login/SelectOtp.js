@@ -1,9 +1,9 @@
-import { CardText, CardLabelError, FormStep } from "@egovernments/digit-ui-components";
+import { CardText, CardLabelError, FormStep, Button } from "@egovernments/digit-ui-components";
 import React, { Fragment, useState } from "react";
 import useInterval from "../../../hooks/useInterval";
 import { OTPInput } from "@egovernments/digit-ui-react-components";
 
-const SelectOtp = ({ config, otp, onOtpChange, onResend, onSelect, t, error, userType = "citizen", canSubmit }) => {
+const SelectOtp = ({ config, otp, mobileNumber, onOtpChange, onResend, onSelect, t, error, userType = "citizen", canSubmit }) => {
   const [timeLeft, setTimeLeft] = useState(30);
 
   useInterval(
@@ -14,8 +14,7 @@ const SelectOtp = ({ config, otp, onOtpChange, onResend, onSelect, t, error, use
   );
 
   const handleResendOtp = () => {
-    onResend();
-    setTimeLeft(2);
+    timeLeft === 0 ? setTimeLeft(30) : null;
   };
 
   if (userType === "employee") {
@@ -35,17 +34,18 @@ const SelectOtp = ({ config, otp, onOtpChange, onResend, onSelect, t, error, use
   }
 
   return (
-    <FormStep onSelect={onSelect} config={config} t={t} isDisabled={!(otp?.length === 6 && canSubmit)}>
+    <div>
+      <div className="dialog-sub-header">{`Enter the OTP sent to ${mobileNumber}`}</div>
       <OTPInput length={6} onChange={onOtpChange} value={otp} />
-      {timeLeft > 0 ? (
-        <CardText>{`${t("CS_RESEND_ANOTHER_OTP")} ${timeLeft} ${t("CS_RESEND_SECONDS")}`}</CardText>
-      ) : (
-        <p className="card-text-button" onClick={handleResendOtp}>
+      <div className="card-text-button">
+        Request a new OTP in 00:{timeLeft < 10 ? `0${timeLeft}` : `${timeLeft}`}
+        <p className={timeLeft === 0 ? "resend-otp" : "resend-otp-disabled"} onClick={handleResendOtp}>
           {t("CS_RESEND_OTP")}
         </p>
-      )}
+      </div>
       {!error && <CardLabelError>{t("CS_INVALID_OTP")}</CardLabelError>}
-    </FormStep>
+      <Button className="otp-verification" primary backgroundColor={"#007E7E"} size="large" label="Verify" onClick={onSelect} />{" "}
+    </div>
   );
 };
 

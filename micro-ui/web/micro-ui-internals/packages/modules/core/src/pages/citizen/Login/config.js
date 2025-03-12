@@ -1,17 +1,16 @@
 export const loginSteps = [
   {
     texts: {
-      header: "CS_LOGIN_PROVIDE_MOBILE_NUMBER",
-      cardText: "CS_LOGIN_TEXT",
-      nextText: "CS_COMMONS_NEXT",
-      submitBarLabel: "CS_COMMONS_NEXT",
+      header: "Please enter your mobile number",
+      cardText: "You will use this as your log in. We will send you an OTP to verify.",
+      submitBarLabel: "Continue",
     },
     inputs: [
       {
-        label: "CORE_COMMON_MOBILE_NUMBER",
+        label: "Mobile No",
         type: "text",
         name: "mobileNumber",
-        error: "ERR_HRMS_INVALID_MOB_NO",
+        error: "Please Enter a valid mobile number",
         validation: {
           required: true,
           minlength: 10,
@@ -30,9 +29,8 @@ export const loginSteps = [
   },
   {
     texts: {
-      header: "CS_LOGIN_PROVIDE_NAME",
-      cardText: "CS_LOGIN_NAME_TEXT",
-      nextText: "CS_COMMONS_NEXT",
+      header: "Enter your name as per official documents",
+      cardText: "This is to ensure seamless verification and maintain compliance with official records",
       submitBarLabel: "CS_COMMONS_NEXT",
     },
     inputs: [

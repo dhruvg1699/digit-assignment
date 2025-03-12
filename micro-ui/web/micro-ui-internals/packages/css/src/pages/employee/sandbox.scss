@@ -420,7 +420,6 @@
     }
     .digit-card-component {
       .digit-card-header {
-        font-size: 2rem !important;
         font-weight: 700 !important;
       }
     }
@@ -802,26 +801,23 @@ digit-card-text.center {
   }
 }
 
-
 @media (max-width: 768px) {
   .role-action-container {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .role-card {
-      width: 100%;
-      margin-bottom: 0.625rem; 
+    width: 100%;
+    margin-bottom: 0.625rem;
   }
 }
 
-
-.faq-answer{
-  .card-section-sub-text{
+.faq-answer {
+  .card-section-sub-text {
     margin-left: 0.5rem;
   }
 }
-
 
 .role-landing-container {
   display: flex;
@@ -1029,6 +1025,6 @@ digit-card-text.center {
   line-height: 1.6;
 }
 
-.tooltiptext{
+.tooltiptext {
   width: 30rem !important;
 }
