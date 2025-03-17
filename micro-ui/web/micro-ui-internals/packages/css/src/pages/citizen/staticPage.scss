@@ -1,0 +1,48 @@
+.advocate-registered {
+  width: 65rem;
+  background-color: #ffffff;
+  padding: 2.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.static-card-header {
+  margin-top: 2.5rem;
+  font-family: Roboto Condensed;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.static-card-text {
+  margin-top: 1.5rem;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #505a5f;
+}
+
+.registered-button {
+  width: 35% !important;
+}
+
+.registered-button-secondary {
+  width: 35% !important;
+  background-color: transparent;
+  border: 1px solid #007e7e;
+}
+
+.digit-button-label {
+  text-transform: none;
+}
+
+.registered-button-secondary .digit-button-label {
+  color: #007e7e;
+}

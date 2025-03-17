@@ -14,15 +14,17 @@ import ErrorBoundary from "./components/ErrorBoundaries";
 import getStore from "./redux/store";
 import PrivacyComponent from "./components/PrivacyComponent";
 import OtpComponent from "./pages/employee/Otp/OtpCustomComponent";
+import UploadComponent from "./pages/citizen/Register/UploadComponent";
+import AadhaarInput from "./pages/citizen/Register/AadhaarInput";
 
-const DigitUIWrapper = ({ stateCode, enabledModules, moduleReducers, defaultLanding,allowedUserTypes }) => {
-  const { isLoading, data: initData={} } = Digit.Hooks.useInitStore(stateCode, enabledModules);
+const DigitUIWrapper = ({ stateCode, enabledModules, moduleReducers, defaultLanding, allowedUserTypes }) => {
+  const { isLoading, data: initData = {} } = Digit.Hooks.useInitStore(stateCode, enabledModules);
   if (isLoading) {
     return <Loader page={true} variant={"PageLoader"} />;
   }
-  const data=getStore(initData, moduleReducers(initData)) || {};
+  const data = getStore(initData, moduleReducers(initData)) || {};
   const i18n = getI18n();
-  if(!Digit.ComponentRegistryService.getComponent("PrivacyComponent")){
+  if (!Digit.ComponentRegistryService.getComponent("PrivacyComponent")) {
     Digit.ComponentRegistryService.setComponent("PrivacyComponent", PrivacyComponent);
   }
   return (
@@ -67,7 +69,7 @@ const DigitUIWrapper = ({ stateCode, enabledModules, moduleReducers, defaultLand
  * @param {Object} props.moduleReducers - Reducers associated with enabled modules.
  * @param {string} props.defaultLanding - The default landing page (e.g., "employee", "citizen"), default is citizen.
  * @param {Array<string>} props.allowedUserTypes - A list of allowed user types (e.g., ["employee", "citizen"]) if any restriction to be applied, and default is both employee & citizen.
- * 
+ *
  * @author jagankumar-egov
  *
  * @example
@@ -80,7 +82,7 @@ const DigitUIWrapper = ({ stateCode, enabledModules, moduleReducers, defaultLand
  *   moduleReducers={moduleReducers}
  * />
  */
-export const DigitUI = ({ stateCode, registry, enabledModules, moduleReducers, defaultLanding,allowedUserTypes }) => {
+export const DigitUI = ({ stateCode, registry, enabledModules, moduleReducers, defaultLanding, allowedUserTypes }) => {
   const [privacy, setPrivacy] = useState(Digit.Utils.getPrivacyObject() || {});
   const userType = Digit.UserService.getType();
   const queryClient = new QueryClient({
@@ -142,7 +144,13 @@ export const DigitUI = ({ stateCode, registry, enabledModules, moduleReducers, d
                 },
               }}
             >
-              <DigitUIWrapper stateCode={stateCode} enabledModules={enabledModules} moduleReducers={moduleReducers} defaultLanding={defaultLanding}  allowedUserTypes={allowedUserTypes} />
+              <DigitUIWrapper
+                stateCode={stateCode}
+                enabledModules={enabledModules}
+                moduleReducers={moduleReducers}
+                defaultLanding={defaultLanding}
+                allowedUserTypes={allowedUserTypes}
+              />
             </PrivacyProvider.Provider>
           </ComponentProvider.Provider>
         </QueryClientProvider>
@@ -157,6 +165,8 @@ const componentsToRegister = {
   ChangeLanguage,
   PrivacyComponent,
   OtpComponent,
+  UploadComponent,
+  AadhaarInput,
 };
 
 export const initCoreComponents = () => {

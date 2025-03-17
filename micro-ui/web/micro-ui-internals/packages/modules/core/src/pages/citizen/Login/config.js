@@ -1,20 +1,21 @@
 export const loginSteps = [
   {
     texts: {
-      header: "Please enter your mobile number",
-      cardText: "You will use this as your log in. We will send you an OTP to verify.",
-      submitBarLabel: "Continue",
+      header: "CS_LOGIN_PROVIDE_MOBILE_NUMBER",
+      cardText: "CS_LOGIN_TEXT",
+      nextText: "CS_COMMONS_NEXT",
+      submitBarLabel: "CS_COMMONS_NEXT",
     },
     inputs: [
       {
-        label: "Mobile No",
+        label: "CORE_COMMON_MOBILE_NUMBER",
         type: "text",
         name: "mobileNumber",
-        error: "Please Enter a valid mobile number",
+        error: "ERR_HRMS_INVALID_MOB_NO",
         validation: {
           required: true,
-          minlength: 10,
-          maxlength: 10,
+          minLength: 10,
+          maxLength: 10,
         },
       },
     ],
@@ -29,8 +30,9 @@ export const loginSteps = [
   },
   {
     texts: {
-      header: "Enter your name as per official documents",
-      cardText: "This is to ensure seamless verification and maintain compliance with official records",
+      header: "CS_LOGIN_PROVIDE_NAME",
+      cardText: "CS_LOGIN_NAME_TEXT",
+      nextText: "CS_COMMONS_NEXT",
       submitBarLabel: "CS_COMMONS_NEXT",
     },
     inputs: [
@@ -41,11 +43,8 @@ export const loginSteps = [
         error: "CORE_COMMON_NAME_VALIDMSG",
         validation: {
           required: true,
-          minlength: 1,
-          maxlength: 50,
-          // pattern: /^[^{0-9}^\$\"<>?\\\\~!@#$%^()+={}\[\]*,/_:;“”‘’]{1,50}$/i,
-          // pattern: /^(?!\s)[^{0-9}^\$\"<>?\\\\~!@#$%^()+={}\[\]*,/_:;“”‘’]{1,50}(?!\s)$/i
-          pattern: "^[A-Za-z]+( [A-Za-z]+)*$",
+          minLength: 1,
+          pattern: /^[^{0-9}^\$\"<>?\\\\~!@#$%^()+={}\[\]*,/_:;“”‘’]{1,50}$/i,
         },
       },
     ],

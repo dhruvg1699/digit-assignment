@@ -114,6 +114,7 @@
 @import "./pages/employee/sandbox.scss";
 @import "./pages/citizen/loginStyles.scss";
 @import "./pages/citizen/formStyles.scss";
+@import "./pages/citizen/staticPage.scss";
 
 .wbh-header-container {
   display: flex !important;
@@ -649,10 +650,8 @@ input[type="number"] {
   .citizen-form-wrapper {
     width: 100%;
     display: flex;
-    justify-content: flex-start !important;
-    margin-top: 1rem;
-    padding-left: 16px;
-    padding-right: 16px;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media (min-width: 780px) {

@@ -1,5 +1,5 @@
-import { BackLink, CitizenHomeCard, CitizenInfoLabel, PopUp } from "@egovernments/digit-ui-components";
-import React, { useState } from "react";
+import { BackLink, CitizenHomeCard, CitizenInfoLabel } from "@egovernments/digit-ui-components";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { Route, Switch, useHistory, useRouteMatch } from "react-router-dom";
 import ErrorBoundary from "../../components/ErrorBoundaries";
@@ -17,6 +17,7 @@ import Login from "./Login";
 import Search from "./SearchApp";
 import StaticDynamicCard from "./StaticDynamicComponent/StaticDynamicCard";
 import ImageComponent from "../../components/ImageComponent";
+import Register from "./Register";
 
 const sidebarHiddenFor = [
   `${window?.contextPath}/citizen/register/name`,
@@ -76,7 +77,7 @@ const Home = ({
   };
 
   const hideSidebar = sidebarHiddenFor.some((e) => window.location.href.includes(e));
-  const appRoutes = modules.map(({ code, tenants }, index) => {
+  const appRoutes = modules?.map(({ code, tenants }, index) => {
     const Module = Digit.ComponentRegistryService.getComponent(`${code}Module`);
     return Module ? (
       <Route key={index} path={`${path}/${code.toLowerCase()}`}>
@@ -85,7 +86,7 @@ const Home = ({
     ) : null;
   });
 
-  const ModuleLevelLinkHomePages = modules.map(({ code, bannerImage }, index) => {
+  const ModuleLevelLinkHomePages = modules?.map(({ code, bannerImage }, index) => {
     let Links = Digit.ComponentRegistryService.getComponent(`${code}Links`) || (() => <React.Fragment />);
     let mdmsDataObj = isLinkDataFetched ? processLinkData(linkData, code, t) : undefined;
 
@@ -198,7 +199,7 @@ const Home = ({
             </Route>
 
             <Route path={`${path}/register`}>
-              <Login stateCode={stateCode} isUserRegistered={false} />
+              <Register stateCode={stateCode} />
             </Route>
 
             <Route path={`${path}/user/profile`}>

@@ -5,11 +5,13 @@
 
 .digit-card-label {
   margin: 0 !important;
+  margin-bottom: 0.3rem !important;
 }
 
 .form-component {
   background-color: #ffffff;
   padding: 2.5rem;
+  min-width: 35rem;
 }
 
 .form-support-text {
@@ -18,7 +20,94 @@
   justify-content: center;
 }
 
+.address-field-without-label {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
 .form-support-text-label {
   width: 70%;
   margin-bottom: 3rem;
+}
+
+.multiple-inputs-row {
+  display: flex;
+  gap: 2rem;
+}
+
+.half-length-input {
+  width: calc(50% - 1rem);
+}
+
+.employee-card-input {
+  margin-bottom: 0 !important;
+}
+
+.submit-bar {
+  width: 100% !important;
+  background-color: #007e7e;
+  margin-top: 2rem;
+}
+
+.input-otp-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-otp-wrap .input-aadhaar {
+  width: calc(33% - 1rem) !important;
+  margin: 0 !important;
+}
+
+.custom-upload-component {
+  display: flex;
+  gap: 1rem;
+}
+
+.file-upload-button {
+  width: 40%;
+  border: 1px solid #007e7e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #007e7e;
+  font-family: Roboto;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.upload-text-input {
+  width: calc(60% - 1rem);
+}
+
+.uploaded-image-container {
+  width: 40%;
+}
+
+.cross-icon {
+  position: relative;
+  top: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #007e7e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.upload-file-label {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.image-container {
+  border: 1px solid #d6d5d4;
 }
