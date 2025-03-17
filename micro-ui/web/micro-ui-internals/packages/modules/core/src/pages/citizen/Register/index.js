@@ -72,7 +72,8 @@ const Register = ({ stateCode, isUserRegistered = true }) => {
     if (!stateName?.name?.length || !file) {
       setError("Please enter all the fields");
     } else {
-      console.log(advocateDetails, stateName);
+      localStorage.setItem("registrationState", stateName.name);
+      localStorage.setItem("BARRegistration", advocateDetails.barNumber);
       history.replace(`${path}/name`);
     }
   };
@@ -162,7 +163,7 @@ const Register = ({ stateCode, isUserRegistered = true }) => {
         {
           type: "component",
           component: "UploadComponent",
-          label: "Upload Files",
+          label: "Upload BAR council ID",
           key: "files",
           name: "fileUpload",
           isMandatory: true,
@@ -273,7 +274,8 @@ const Register = ({ stateCode, isUserRegistered = true }) => {
     if (!name.firstName.length || !name.lastName.length) {
       setError("Please enter all the fields");
     } else {
-      console.log(name);
+      localStorage.setItem("firstName", name.firstName);
+      localStorage.setItem("lastName", name.lastName);
       history.replace(`${path}/address`);
     }
     // setCanSubmitName(true);
@@ -298,9 +300,12 @@ const Register = ({ stateCode, isUserRegistered = true }) => {
       !params.locality?.length ||
       !params.doorNo?.length
     ) {
-      console.log("Enter Fields");
       setError("Please enter all the fields");
     } else {
+      localStorage.setItem(
+        "address",
+        `${params.doorNo} ${params.locality} ${params.address} ${params.district} ${params.city} ${params.state} ${params.pincode}`
+      );
       history.replace(`${path}/aadhaar-verification`);
     }
     // setCanSubmitName(true);
@@ -314,6 +319,7 @@ const Register = ({ stateCode, isUserRegistered = true }) => {
       console.log(params.otp);
       console.log(path);
       setParmas({ ...params, otp: "" });
+      localStorage.setItem("mobileNumber", params.mobileNumber);
       history.replace(`${path}/advocate-verification`);
     }
   };
@@ -323,8 +329,7 @@ const Register = ({ stateCode, isUserRegistered = true }) => {
       setIsOtpValid(false);
     } else {
       setIsOtpValid(true);
-      console.log(params.otp);
-      console.log(path);
+      localStorage.setItem("aadhaar", params.aadhaar);
       setParmas({ ...params, otp: "" });
       history.replace(`${path}/advocate-registered`);
     }
@@ -393,15 +398,7 @@ const Register = ({ stateCode, isUserRegistered = true }) => {
             )}
           </Route>
           <Route path={`${path}/advocate-verification`}>
-            <AdvocateVerification
-              advocateRegistration={onSelectVerification}
-              config={advocateVerificationConfig}
-              // stateName={stateName}
-              // onMobileChange={handleMobileChange}
-              // canSubmit={canSubmitNo}
-              // showRegisterLink={isUserRegistered && !location.state?.role}
-              // t={t}
-            />
+            <AdvocateVerification advocateRegistration={onSelectVerification} config={advocateVerificationConfig} />
           </Route>
           <Route path={`${path}/name`}>
             <SelectName config={nameConfig} onSelect={selectName} />
@@ -418,7 +415,7 @@ const Register = ({ stateCode, isUserRegistered = true }) => {
                     ...stepItems[1],
                     texts: { ...stepItems[1].texts, cardText: `${stepItems[1].texts.cardText} ${params.mobileNumber || ""}` },
                   }}
-                  mobileNumber={params.mobileNumber}
+                  mobileNumber={localStorage.getItem("mobileNumber")}
                   onOtpChange={handleOtpChange}
                   onResend={resendOtp}
                   onSelect={selectAdhaarOtp}
