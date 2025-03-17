@@ -1,10 +1,12 @@
 # ASSIGNMENT ROUTE
 
-The Route on which the assignment can be viewed is
+The Route on which the assignment UI can be viewed is
 
 ```
 /workbench-ui/citizen/register
 ```
+
+All submitted data is stored in local storage
 
 # DIGIT
 
