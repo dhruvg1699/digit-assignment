@@ -1,3 +1,15 @@
+# ASSIGNMENT DETAILS
+
+Develop the frontend for the Advocate Registration as per the [Figma screens](https://www.figma.com/design/yZNmfEZZiKVmmGPQA4g5zZ/DIGIT-Developer-Certification?node-id=1-11774&t=Uk1w5CctM6mf80D1-1). More details can be found [here](https://beehyv0-my.sharepoint.com/:w:/g/personal/kranthikumar_singarapu_beehyv_com/EZmh7ejZE79IuB-RsMTSA18B0pqeEpeDYyMxDFH_0PHhaA?wdOrigin=TEAMS-WEB.p2p_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1741260553617&web=1)
+
+# FEATURES IMPLEMENTED
+
+1. Frontend for Registration Screens (Mobile Number input, Aadhaar Verification, Address & Name Input and OTP Screens)
+2. Form Validations
+3. Data Saved on local storage
+
+Note: There is no Backend Implementation. So, features such as get OTP on Phone, Aadhaar verification, etc wont work.
+
 # ASSIGNMENT ROUTE
 
 The Route on which the assignment UI can be viewed is
